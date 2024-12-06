@@ -25,7 +25,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
         const headers = {
             "Authorization": `${token}`
         }
-        axios.get("http://localhost:8080/getUserTasks", { headers }).then((res) => {
+        axios.get("https://internshiptodotask.onrender.com/getUserTasks", { headers }).then((res) => {
            //  console.log(res.data.Data)
             setUserTasks(res.data.Data)
             if(filterValue){
@@ -36,7 +36,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
                              return true
                     }
              })
-              console.log(filterData)
+             // console.log(filterData)
              setFilterData(filterData)
             }
            
@@ -58,7 +58,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
             "Authorization": `${token}`,
             "Content-Type": 'application/json'
         }
-        axios.delete(`http://localhost:8080/DeleteTask/${TaskId}`,{headers}).then((res) => {
+        axios.delete(`https://internshiptodotask.onrender.com/${TaskId}`,{headers}).then((res) => {
             console.log(res.data)
             setDOMUpdate(res.data)
             setDeleteStatus()
@@ -80,7 +80,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
             "Content-Type": 'application/json'
         }
                    
-               axios.put("http://localhost:8080/taskStatus", {taskID:id,Status:taskstatus},{headers}).then((res)=>{
+               axios.put("https://internshiptodotask.onrender.com/taskStatus", {taskID:id,Status:taskstatus},{headers}).then((res)=>{
                 setUserTasks(res.data.result)
                 settaskBoxID()
                 if(filterValue){
@@ -91,7 +91,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
                              return true
                     }
              })
-              console.log(filterData)
+             // console.log(filterData)
              setFilterData(filterData)
             }
               
@@ -201,8 +201,8 @@ const UserActivity = () => {
     const AddTaskEvent = () => {
         setBtnStatus(true)
         if (userTask.Task !== "") {
-            axios.put("http://localhost:8080/addTask", userTask, { headers }).then((res) => {
-                console.log(res.data)
+            axios.put("https://internshiptodotask.onrender.com/addTask", userTask, { headers }).then((res) => {
+                //console.log(res.data)
                 setUserTask({ Task: "" })
                setDOMUpdate(res.data)
                setBtnStatus()
@@ -235,7 +235,7 @@ const UserActivity = () => {
         "Authorization": `${token}`,
         "Content-Type": 'application/json'
     }
-            axios.put(`http://localhost:8080/UpDataTask/${TaskId}`, updateTask, {headers}).then((res) => {
+            axios.put(`https://internshiptodotask.onrender.com/${TaskId}`, updateTask, {headers}).then((res) => {
                 if (res.data.Success) {
                     setInputPurpose("AddTask")
                     setDOMUpdate(res.data.Success)

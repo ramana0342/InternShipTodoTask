@@ -25,7 +25,7 @@ const UserRegister = () => {
 
   const SignUpBtnEvent = () => {
     setBtnStatus(true)
-    axios.post("http://localhost:8080/register", userData).then((res) => {
+    axios.post("https://internshiptodotask.onrender.com/register", userData).then((res) => {
       //console.log(res.data)
       if (res.data.Success) {
         setError(null)
@@ -37,7 +37,7 @@ const UserRegister = () => {
 
       } else {
         setRegisterStatus(null)
-        console.log(res)
+      //  console.log(res)
         setError(res.data.ERROR)
         setBtnStatus()
         //console.log(Error)
