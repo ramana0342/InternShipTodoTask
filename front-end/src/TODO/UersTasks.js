@@ -235,7 +235,7 @@ const UserActivity = () => {
         "Authorization": `${token}`,
         "Content-Type": 'application/json'
     }
-            axios.put(`https://internshiptodotask.onrender.com/${TaskId}`, updateTask, {headers}).then((res) => {
+            axios.put(`https://internshiptodotask.onrender.com/UpDataTask/${TaskId}`, updateTask, {headers}).then((res) => {
                 if (res.data.Success) {
                     setInputPurpose("AddTask")
                     setDOMUpdate(res.data.Success)
