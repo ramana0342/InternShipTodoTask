@@ -58,7 +58,7 @@ const UserTasks = ({ setUpdateFun,setUpdateTask, DOMUpdate, setDOMUpdate ,Update
             "Authorization": `${token}`,
             "Content-Type": 'application/json'
         }
-        axios.delete(`https://internshiptodotask.onrender.com/${TaskId}`,{headers}).then((res) => {
+        axios.delete(`https://internshiptodotask.onrender.com/DeleteTask/${TaskId}`,{headers}).then((res) => {
             console.log(res.data)
             setDOMUpdate(res.data)
             setDeleteStatus()
