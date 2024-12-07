@@ -1,13 +1,13 @@
 import React from 'react'
 
-function InitialUserTasks({UserTasks,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateStatus,UpdateSymbolClick,setInputPurpose}) {
+function InitialUserTasks({UserallTasks,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateStatus,UpdateSymbolClick,setInputPurpose}) {
   
-  //  console.log(UserTasks.length)
+// console.log(UserallTasks)
   
   return (<>
 
-{UserTasks.length > 0 ? UserTasks.map((item, index) => {
-                        //console.log(item)
+{UserallTasks.length > 0 ? UserallTasks.map((item, index) => {
+                    
                         return (<> 
                             <div className="GetTask-Inner-Container d-flex justify-content-between" style={{ padding: "0px 15px", overflow: "auto"}}>
                                 <div style={{marginTop:"12px",display:"flex"}}>

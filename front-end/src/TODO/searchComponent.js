@@ -1,9 +1,8 @@
 import React from 'react'
 
-function FilterTask({filterData,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateStatus,UpdateSymbolClick,filterValue,setInputPurpose,UserallTasks}) {
-
-
-    function filtertaskInfomation(){
+function SearchComponent({searchFilterData,filterData,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateStatus,UpdateSymbolClick,filterValue,setInputPurpose,UserallTasks}) {
+  
+          function filtertaskInfomation(){
           //console.log("123")
            if(filterValue=="Completed" && UserallTasks.length>0){
               return <div className="Empty-Task-div"><h1>Task Completed Empty</h1></div>
@@ -14,10 +13,10 @@ function FilterTask({filterData,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateS
            }
     }
     
-        
+        console.log("123")
   return (<>
 
-{filterData.length > 0 ? filterData.map((item, index) => {
+{searchFilterData.length > 0 ? searchFilterData.map((item, index) => {
                        // console.log(item)
                         return (<> 
                             <div className="GetTask-Inner-Container d-flex justify-content-between" style={{ padding: "0px 15px", overflow: "auto"}}>
@@ -44,7 +43,8 @@ function FilterTask({filterData,taskBoxStatusFun,deleteStatus,DeleteTask,UpdateS
 
                         : filtertaskInfomation()} 
 
-  </> )
-}
 
-export default FilterTask
+  </>)}
+
+
+export default SearchComponent

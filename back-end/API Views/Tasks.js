@@ -17,10 +17,11 @@ router.put("/addTask", async (req, res) => {
         isComplete:0,    
   }
   user.userTasks.push(taskObject)
-  let result = user.save()
+  await user.save()
+    let Data= user.userTasks
  // console.log(user)
   res.json({
-        result
+    Data
   })
 })
 
@@ -52,10 +53,12 @@ router.put("/UpDataTask/:id", async (req, res) => {
                  }
                  return item
   })
-  userData.save()
+  await userData.save()
  // console.log(userData.userTasks)
+ let Data = userData.userTasks
   return res.json({
-    Success: "Task Was Updated in DB" 
+    Success: "Task Was Updated in DB",
+    Data
   })
 })
 
@@ -75,8 +78,10 @@ router.delete("/DeleteTask/:id", async (req, res) => {
    })
 //  console.log( userData.userTasks)
    await userData.save()
+   let Data = userData.userTasks
   return res.json({
-    Success: "Task Was deleted in DB"
+    Success: "Task Was deleted in DB",
+    Data
   })
 })
 
